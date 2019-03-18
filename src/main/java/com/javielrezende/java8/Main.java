@@ -1,8 +1,6 @@
 package com.javielrezende.java8;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -111,8 +109,38 @@ public class Main {
 // -------------------------------Aula Optional---------------------------------------------------------------
 //1 - Filtrando numeros diferentes de 0
 
+        System.out.println("");
+        System.out.println("Aula Optional");
+        System.out.println("Sem a classe Optional em funcionamento");
+        List<Person> people = new ArrayList<Person>();
+        Person person1 = new Person("Roger");
+        Person person2 = new Person("Igor");
+        Person person3 = new Person("Miguel");
+        Person person4 = new Person("Dionatan");
+        Person person5 = new Person(null);
 
+        people.add(person1);
+        people.add(person2);
+        people.add(person3);
+        people.add(person4);
+        people.add(person5);
 
+        people.forEach(p -> {
+            System.out.println(p.getName());
+        });
+
+        System.out.println("");
+        System.out.println("Com a classe Optional em funcionamento");
+        Optional<Person> op = Optional.of(person1);
+        op.ifPresent(p -> {
+            System.out.println(p.getName());
+        });
+
+        System.out.println("");
+        System.out.println("Outro exemplo - Tentando pegar um nome nulo com ofNullable");
+        String name = person5.getName();
+        Optional<String> op1 = Optional.ofNullable(name);
+        op1.ifPresent(System.out::println);
 
 
 
