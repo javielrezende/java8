@@ -1,11 +1,15 @@
 package com.javielrezende.java8;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
 
-    public static void main(String... args) {
+    public static void main(String... args) throws InterruptedException {
 
 //----------------------------------------------------------------------------------------------------------
 // -------------------------------Aula Lambda---------------------------------------------------------------
@@ -107,7 +111,7 @@ public class Main {
                 .forEach(System.out::println);
 
 // -------------------------------Aula Optional---------------------------------------------------------------
-//1 - Filtrando numeros diferentes de 0
+//1 - Exemplos da classe Optional
 
         System.out.println("");
         System.out.println("Aula Optional");
@@ -143,7 +147,28 @@ public class Main {
         op1.ifPresent(System.out::println);
 
 
+// -------------------------------Aula Date-Time---------------------------------------------------------------
+//1 - Exemplos da classe Date-Time
+        System.out.println("Utilizando Java Date-time");
+        System.out.println("Horario local");
 
+        Instant now = Instant.now();
+
+        Thread.sleep(1000);
+        Instant now2 = Instant.now();
+
+        Duration dur = Duration.between(now, now2);
+        System.out.println("Diferença entre as duas datas é de " + dur.getSeconds() + " segundos");
+
+        System.out.println("");
+        System.out.println("Novas datas co Local Date");
+
+        LocalDate local = LocalDate.now();
+        LocalDate birthday = LocalDate.of(2016, 8, 6);
+
+        Period period = Period.between(birthday, local);
+        System.out.println("Verificando a idade atual");
+        System.out.printf("%s %s %s", period.getDays(), period.getMonths(), period.getYears());
 
 
 
